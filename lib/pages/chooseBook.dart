@@ -29,9 +29,10 @@ class _ChooseBookState extends State<ChooseBook> {
     if (result != null) {
       String? filePath = result.files.single.path;
       if(filePath != null){
-        var name = 'Smith';
         //File file = File(filePath);
-        Navigator.pushNamed(context, '/bookReader');
+        Navigator.pushNamed(context, '/bookReader', arguments: {
+          'bookPath': filePath,
+        });
       }
     } else {
       // User canceled the picker
@@ -50,7 +51,7 @@ class _ChooseBookState extends State<ChooseBook> {
             color: Colors.grey[300],
           ),
           label: Text(
-            'read book',
+            'choose book',
             style: TextStyle(
                 color: Colors.grey[300]
             ),
