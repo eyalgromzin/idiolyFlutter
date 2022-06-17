@@ -25,8 +25,6 @@ class _BookReaderState extends State<BookReader> {
 
   List<String> bookTextByChapters = [];
 
-  String wholeBookText = 'asd asd asd ';
-
   @override
   void didChangeDependencies() async {
     var data2 = ModalRoute.of(context)?.settings.arguments as Map<dynamic, dynamic>;
@@ -35,12 +33,7 @@ class _BookReaderState extends State<BookReader> {
       String bookPath = data2['bookPath'];
 
       print('book path : $bookPath');
-
-      setState(() { //without it still dissappears
-        wholeBookText = 'asd asd asd ';
-      });
     }
-    // args = ModalRoute.of(context).settings.argument
     super.didChangeDependencies();
   }
 
@@ -51,6 +44,9 @@ class _BookReaderState extends State<BookReader> {
 
   @override
   Widget build(BuildContext context) {
+    print('in book reader');
+
+    var s = 4;
     return const Scaffold(
       body: Center(
         child:  ExampleMultiPageText(bookText: 'asd asd s'),
