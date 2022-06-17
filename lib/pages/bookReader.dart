@@ -51,9 +51,6 @@ class _BookReaderState extends State<BookReader> {
 
   @override
   Widget build(BuildContext context) {
-    print('in book reader');
-
-    var s = 4;
     return const Scaffold(
       body: Center(
         child:  ExampleMultiPageText(bookText: 'asd asd s'),
