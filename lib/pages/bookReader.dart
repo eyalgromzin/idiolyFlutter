@@ -65,10 +65,11 @@ class _BookReaderState extends State<BookReader> {
         "    Where can I get some?"
         "    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.";
 
-    const String text2= 'asd';
+    //not working
+    const String text2= 'asd ';
     return const Scaffold(
       body: Center(
-        child:  ExampleMultiPageText(bookText: text1),
+        child:  ExampleMultiPageText(bookText: text2),
       ),
     );
   }
@@ -306,12 +307,18 @@ class _MultiPageTextState extends State<MultiPageText> {
     required String text,
     required int pageCharacterLimit,
   }) {
-    final initialPageTextEstimate =
-    text.substring(0, math.min(pageCharacterLimit + 1, text.length));
-    final substringIndex =
+    int pageCharacterLimit2 = pageCharacterLimit;
+    if(pageCharacterLimit2 < 0){
+      pageCharacterLimit2 = -pageCharacterLimit2; //didnt work?
+    }
+    String initialPageTextEstimate =
+    text.substring(0, math.min(pageCharacterLimit2 + 1, text.length));
+    int substringIndex =
     initialPageTextEstimate.lastIndexOf(RegExp(r"\s+\b|\b\s+|[\.?!]"));
-    final pageTextEstimate =
-    text.substring(0, math.min(substringIndex + 1, text.length));
+    if(substringIndex <= 0){
+      substringIndex = initialPageTextEstimate.length;
+    }
+    final pageTextEstimate = text.substring(0, math.min(substringIndex + 1, text.length));
     return pageTextEstimate;
   }
 
