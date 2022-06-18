@@ -67,9 +67,9 @@ class _BookReaderState extends State<BookReader> {
 
     //not working
     const String text2= 'asd ';
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child:  ExampleMultiPageText(bookText: text2),
+        child: ExampleMultiPageText(bookText: wholeBookText),
       ),
     );
   }
@@ -590,7 +590,7 @@ enum PageUpdateOperation {
 class ExampleMultiPageText extends StatefulWidget {
   final String bookText;
 
-  const ExampleMultiPageText({Key? key, required this.bookText}) : super(key: key);
+  ExampleMultiPageText({Key? key, required this.bookText}) : super(key: key);
 
   @override
   State<ExampleMultiPageText> createState() => _ExampleMultiPageTextState();
