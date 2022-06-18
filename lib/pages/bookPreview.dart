@@ -361,7 +361,7 @@ class PageNavigatorMenu extends StatelessWidget {
             child: FittedBox(
               fit: BoxFit.scaleDown,
               child: Text(
-                'Page ${currentPageIndex + 1}',
+                '${currentPageIndex + 1}',
               ),
             ),
           ),
