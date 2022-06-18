@@ -477,21 +477,20 @@ class _ExampleMultiPageTextState extends State<ExampleMultiPageText> {
     return Center(
       child: MultiPageText(
         textStyle: const TextStyle(
-          fontSize: 10,
+          fontSize: 14,
           color: Colors.black,
         ),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(
-            width: 1.0,
-            color: Colors.black,
+        decoration: const BoxDecoration(
+          // borderRadius: BorderRadius.circular(10),
+          border: Border(
+            bottom: BorderSide(width: 1.0, color: Colors.black),
           ),
         ),
         usePageNavigation: true,
         fullText: widget.bookText,
-        size: const Size(
-          200,
-          350,
+        size: Size(
+          MediaQuery.of(context).size.width,// 400,
+          MediaQuery.of(context).size.height - 100// 700,
         ),
       ),
     );
