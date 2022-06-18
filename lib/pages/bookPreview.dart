@@ -59,7 +59,7 @@ class MultiPageText extends StatefulWidget {
 }
 
 class _MultiPageTextState extends State<MultiPageText> {
-  int _currentPageIndex = 0;
+  late int _currentPageIndex = 0;
   final double _pageNavigatorHeight = 80;
   final int _upperLayoutRunsLimit = 20;
   late List<String> _pages;
@@ -472,12 +472,8 @@ class ExampleMultiPageText extends StatefulWidget {
 
 class _ExampleMultiPageTextState extends State<ExampleMultiPageText> {
 
-  // String bookText = 'asd asd asd ';
-
   @override
   Widget build(BuildContext context) {
-
-
     return Center(
       child: MultiPageText(
         textStyle: const TextStyle(

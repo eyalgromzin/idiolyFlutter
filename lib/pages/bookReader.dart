@@ -26,11 +26,15 @@ class _BookReaderState extends State<BookReader> {
   Map data = <dynamic, dynamic>{};
 
   List<String> bookTextByChapters = [];
-  String wholeBookText = "";
+  late String wholeBookText;
 
   @override
   void didChangeDependencies() async {
     var data2 = ModalRoute.of(context)?.settings.arguments as Map<dynamic, dynamic>;
+
+    // setState(() { //without it still dissappears
+    //   wholeBookText = ''
+    // });
 
     if(data2['bookPath'] != null){
       String bookPath = data2['bookPath'];
@@ -71,6 +75,7 @@ class _BookReaderState extends State<BookReader> {
     const String text2= 'asd ';
     return Scaffold(
       body: Center(
+        //works with text1
         child: ExampleMultiPageText(bookText: wholeBookText),
       ),
     );

@@ -14,7 +14,7 @@ void main() {
       '/home': (context) => const Home(),
       '/location': (context) => const ChooseLocation(),
       '/chooseBook': (context) => const ChooseBook(),
-      '/bookReader': (context) => const BookReader()
+      '/bookReader': (context) => BookReader()
     }
   ));
 }
